@@ -5,3 +5,47 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts 'Creating base user and wandsworth area'
+user = User.create!(first_name: "David", last_name: "Morley", email: "davidkmorley@gmail.com", password: "123456")
+area = Area.create!(name: "Wandsworth", user: user)
+
+puts 'Done'
+
+puts 'Creating 4 users and areas...'
+4.times do |i|
+  first_name = Faker::Name.first_name
+  user = User.create!(
+    first_name: first_name,
+    last_name: Faker::Name.last_name,
+    email: "#{first_name}@gmail.com",
+    password: "123456"
+  )
+
+
+  area = Area.create!(
+    name: Faker::RickAndMorty.location,
+    user: user
+    )
+end
+
+puts 'Creating runners...'
+
+100.times do |i|
+  first_name = Faker::Name.first_name
+  runner = Runner.create!(
+    first_name: first_name,
+    last_name: Faker::Name.last_name,
+    area_id: rand(1..5),
+    email: "#{first_name}#{rand(1..10)}@gmail.com",
+    status: ["never_run", "regular", "lapsed"].sample,
+    coach_run: [true, false].sample,
+    mission: [true, false].sample,
+    group_run: [true, false].sample
+  )
+end
+
+
+
+
+
+puts 'Finished!'
