@@ -1,0 +1,44 @@
+.card{
+  height: 150px;
+  border: 1px solid #E6E6E6;
+  font-weight: bold;
+  margin: 2px;
+
+  // font-family: 'Montserrat';
+}
+
+.col-xs-12, .col-sm-6, .col-md-4{
+   padding-left: 2px !important;
+  padding-right: 2px !important;
+}
+
+// .col-md-4{
+//    padding-left: 2px !important;
+//   padding-right: 2px !important;
+// }
+
+.details{
+  height: 50px;
+  text-align: center;
+  padding-top: 25px;
+}
+
+.interests{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100px;
+}
+
+.regular{
+  background-color: #06D6A0;
+}
+
+.lapsed{
+  background-color: #FFD166;
+}
+
+
+.never-run{
+  background-color: #FF8360;
+}

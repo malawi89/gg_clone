@@ -10,20 +10,26 @@
   <h2><%= @area.name %> runners: </h2>
   <div class="row">
     <% @area.runners.each_with_index do |runner, index|%>
-      <div class="col-xs-12 col-md-4">
-        <div class="card">
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <% if runner.status == "regular" %>
+          <div class="card regular">
+        <% elsif runner.status == "lapsed" %>
+          <div class="card lapsed">
+        <% else %>
+          <div class="card never-run">
+        <% end %>
           <div class="details">
             <%= runner.first_name %> <%= runner.last_name %>
           </div>
           <div class="interests">
             <% if runner.coach_run  %>
-              <i class="fas fa-hands-helping"></i>
+              <i class="fas fa-hands-helping fa-3x"></i>
             <% end %>
             <% if runner.group_run %>
-              <i class="fas fa-users"></i>
+              <i class="fas fa-users fa-3x"></i>
             <% end %>
             <% if runner.mission %>
-              <i class="fas fa-people-carry"></i>
+              <i class="fas fa-people-carry fa-3x"></i>
             <% end %>
           </div>
         </div>
