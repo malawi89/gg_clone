@@ -1,17 +1,33 @@
-<h1><%= @area.name %></h1>
+<div class="container">
 
-<%= link_to "Add a runner", new_area_runner_path(@area), class: "btn btn-success btn-lg" %>
+  <h1><%= @area.name %></h1>
 
-<% if current_user.id == @area.user_id %>
-  <%= link_to "Email Users", area_weekly_email_path(current_user.area) , class: "btn btn-success btn-lg"%>
-<% else %>
-<% end %>
-<h2><%= @area.name %> runners: </h2>
-<% @area.runners.each_with_index do |runner, index|%>
-   <p><strong><%= (index + 1) %>. <%= runner.first_name %> <%= runner.last_name %> </strong></p>
-   <p><strong>Status:</strong> <%= runner.status %></p>
-   <p><strong>Interested in: </strong></p>
-   <p> <%= "Coach Runs" if runner.coach_run %></p>
-   <p> <%= "Missions" if runner.mission %></p>
-   <p> <%= "Group Runs" if runner.group_run %></p>
-<% end %>
+  <%= link_to "Add a runner", new_area_runner_path(@area), class: "btn btn-success btn-lg" %>
+
+  <% if current_user.id == @area.user_id %>
+    <%= link_to "Email Users", area_weekly_email_path(current_user.area) , class: "btn btn-success btn-lg"%>
+  <% end %>
+  <h2><%= @area.name %> runners: </h2>
+  <div class="row">
+    <% @area.runners.each_with_index do |runner, index|%>
+      <div class="col-xs-12 col-md-4">
+        <div class="card">
+          <div class="details">
+            <%= runner.first_name %> <%= runner.last_name %>
+          </div>
+          <div class="interests">
+            <% if runner.coach_run  %>
+              <i class="fas fa-hands-helping"></i>
+            <% end %>
+            <% if runner.group_run %>
+              <i class="fas fa-users"></i>
+            <% end %>
+            <% if runner.mission %>
+              <i class="fas fa-people-carry"></i>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
