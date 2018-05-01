@@ -11,12 +11,13 @@ class AreasController < ApplicationController
 
   def weekly_email
     @message = params["message"]
+    @group_run_message = params["group_run_message"]
 
     current_user.area.runners.each do |runner|
-      AreaMailer.weekly(@message, current_user, runner).deliver_now
+      AreaMailer.weekly(@message, @group_run_message, current_user, runner).deliver if params["message"].present?
     end
 
-    redirect_to area_path(current_user.area)
+    # redirect_to area_path(current_user.area)
 
   end
 

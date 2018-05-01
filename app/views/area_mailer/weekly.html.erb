@@ -1,6 +1,15 @@
 <p>Hi <%= @runner.first_name %>,</p>
 
 <%= @message %>
-
+<br>
+<br>
+<%= @group_run_message if @runner.group_run %>
+<% if @runner.mission %>
+  <p>Have you signed up for a mission?</p>
+<% elsif @runner.coach_run && (@runner.status == ("never" || "lapsed"))  %>
+  <p>We'll have you running to a coach soon</p>
+<% elsif @runner.group_run && (@runner.status == ("never" || "lapsed")) %>
+  <p>Will we see you on a run soon?</p>
+<% end %>
 
 <p>Cheers, <%= @user.first_name %></p>

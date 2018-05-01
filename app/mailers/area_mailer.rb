@@ -1,10 +1,12 @@
 class AreaMailer < ApplicationMailer
 
-  def weekly(message, user, receiver)
+  def weekly(message, group_run_message, user, receiver)
     @runner = receiver
     @message = message
     @user = user
+    @group_run_message = group_run_message
 
+    #Changes email subject depending on the runner's status
     if @runner.status == "regular"
       mail(to: @runner.email, subject: "Here's what we've been up to this week")
     elsif @runner.status == "lapsed"
@@ -14,29 +16,5 @@ class AreaMailer < ApplicationMailer
     end
   end
 
-
-
-
-
-  def lapsed
-    @runners = current_user.area.runners.where(status: "lapsed")
-    @runners.each do |runner|
-      mail(to: runner.email, subject: "Testing")
-    end
-  end
-
-  def regular
-    @runners = current_user.area.runners.where(status: "regular")
-    @runners.each do |runner|
-      mail(to: runner.email, subject: "Testing")
-    end
-  end
-
-  def never_run
-    @runners = current_user.area.runners.where(status: "never_run")
-    @runners.each do |runner|
-      mail(to: runner.email, subject: "Testing")
-    end
-  end
 
 end
