@@ -1,5 +1,6 @@
 class RunnersController < ApplicationController
   before_action :set_runner, only: [:show]
+  before_action :set_area
 
   def index
     @runners = Runner.all
@@ -15,8 +16,9 @@ class RunnersController < ApplicationController
 
   def create
     @runner = Runner.new(runner_params)
+    @runner.area = @area
     if @runner.save
-      redirect_to area_runner_path(@runner)
+      redirect_to area_runner_path(@area, @runner)
     else
       render :new
     end
@@ -24,11 +26,15 @@ class RunnersController < ApplicationController
 
   private
 
+  def set_area
+    @area = Area.find(params[:area_id])
+  end
+
   def set_runner
-    @runner = Runner.find[params[:id]]
+    @runner = Runner.find(params[:id])
   end
 
   def runner_params
-    params.require(:runner).permit(:first_name, :last_name, :status, :coach_run, :group_run, :mission, :email)
+    params.require(:runner).permit(:first_name, :last_name, :status, :coach_run, :group_run, :mission, :email, :area_id)
   end
 end
