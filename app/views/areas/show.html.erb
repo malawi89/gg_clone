@@ -3,7 +3,7 @@
 <%= link_to "Add a runner", new_area_runner_path(@area), class: "btn btn-success btn-lg" %>
 
 <% if current_user.id == @area.user_id %>
-  <%= link_to "Email Users", "#" , class: "btn btn-success btn-lg"%>
+  <%= link_to "Email Users", area_weekly_email_path(current_user.area) , class: "btn btn-success btn-lg"%>
 <% else %>
 <% end %>
 <h2><%= @area.name %> runners: </h2>
