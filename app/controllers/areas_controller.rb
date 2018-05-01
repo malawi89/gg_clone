@@ -9,6 +9,17 @@ class AreasController < ApplicationController
     @area = Area.new
   end
 
+  def weekly_email
+    @message = params["message"]
+
+    current_user.area.runners.each do |runner|
+      AreaMailer.weekly(@message, current_user, runner).deliver_now
+    end
+
+    redirect_to area_path(current_user.area)
+
+  end
+
   def create
     @area = Area.new(area_params)
     if @area.save
@@ -17,6 +28,8 @@ class AreasController < ApplicationController
       render :new
     end
   end
+
+  def
 
   def show
 
