@@ -1,4 +1,5 @@
 class Runner < ApplicationRecord
+  mount_uploader :photo, PhotoUploader
   belongs_to :area
   # Runner needs to have first and last name and unique email
   validates :first_name, presence: true
@@ -9,4 +10,5 @@ class Runner < ApplicationRecord
   validates :mission, inclusion: { in: [true, false] }
   validates :coach_run, inclusion: { in: [true, false] }
   validates :area, presence: true
+  # validates :photo, presence: true
 end

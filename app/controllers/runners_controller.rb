@@ -35,6 +35,6 @@ class RunnersController < ApplicationController
   end
 
   def runner_params
-    params.require(:runner).permit(:first_name, :last_name, :status, :coach_run, :group_run, :mission, :email, :area_id)
+    params.require(:runner).permit(:first_name, :last_name, :status, :coach_run, :group_run, :mission, :email, :area_id, :photo, :photo_cache)
   end
 end

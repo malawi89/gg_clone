@@ -1,8 +1,16 @@
+
+
 .card{
   height: 150px;
   border: 1px solid #E6E6E6;
   font-weight: bold;
   margin: 2px;
+
+  .avatar{
+    height: 50px;
+    width: 50px;
+    z-index: 5;
+  }
 
   // font-family: 'Montserrat';
 }
