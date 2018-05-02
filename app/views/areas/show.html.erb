@@ -19,8 +19,10 @@
           <div class="card never-run">
         <% end %>
           <div class="details">
-            <%= cl_image_tag runner.photo %>
-            <%= runner.first_name %> <%= runner.last_name %>
+            <h4> <%= runner.first_name %> <%= runner.last_name %> </h4>
+          </div>
+          <div class="pic">
+            <%= cl_image_tag runner.photo, class:"runner-pic" %>
           </div>
           <div class="interests">
             <% if runner.coach_run  %>

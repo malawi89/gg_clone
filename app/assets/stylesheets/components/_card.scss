@@ -1,18 +1,24 @@
 
 
 .card{
-  height: 150px;
+  height: 180px;
   border: 1px solid #E6E6E6;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   font-weight: bold;
   margin: 2px;
 
-  .avatar{
-    height: 50px;
-    width: 50px;
-    z-index: 5;
+  .runner-pic{
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 5px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   }
+}
 
-  // font-family: 'Montserrat';
+.pic{
+  width: 100%;
 }
 
 .col-xs-12, .col-sm-6, .col-md-4{
@@ -20,15 +26,10 @@
   padding-right: 2px !important;
 }
 
-// .col-md-4{
-//    padding-left: 2px !important;
-//   padding-right: 2px !important;
-// }
-
 .details{
   height: 50px;
   text-align: center;
-  padding-top: 25px;
+  padding-top: 10px;
 }
 
 .interests{
@@ -36,6 +37,7 @@
   justify-content: space-around;
   align-items: center;
   height: 100px;
+  padding-bottom: 20px;
 }
 
 .regular{
@@ -45,7 +47,6 @@
 .lapsed{
   background-color: #FFD166;
 }
-
 
 .never-run{
   background-color: #FF8360;
