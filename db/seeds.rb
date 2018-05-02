@@ -6,7 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 puts 'Creating base user and wandsworth area'
-user = User.create!(first_name: "David", last_name: "Morley", email: "davidkmorley@gmail.com", password: "123456", photo: "David")
+url = "http://res.cloudinary.com/dn2idxe8p/image/upload/v1525248782/kf7k9qowkhhgvmvijg4q.jpg"
+user = User.create!(first_name: "David", last_name: "Morley", email: "davidkmorley@gmail.com", password: "123456")
+user.remote_photo_url = url
+user.save
 area = Area.create!(name: "Wandsworth", user: user)
 
 puts 'Done'
@@ -20,7 +23,7 @@ puts 'Creating 4 users and areas...'
     last_name: Faker::Name.last_name,
     email: "#{first_name}@gmail.com",
     password: "123456",
-    photo: "f2vmyd5krgjerc1mhky9.jpg"
+    photo: "Avatars/#{rand(1..50)}.svg"
   )
 
 # `Avatars/#{rand(1..50)}.svg`
@@ -44,7 +47,7 @@ puts 'Creating runners...'
     coach_run: [true, false].sample,
     mission: [true, false].sample,
     group_run: [true, false].sample,
-    photo: "f2vmyd5krgjerc1mhky9.jpg"
+    photo: "Avatars/#{rando}.svg"
   )
 end
 

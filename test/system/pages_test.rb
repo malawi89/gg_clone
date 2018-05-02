@@ -1,15 +1,18 @@
 require "application_system_test_case"
 
 class PagesTest < ApplicationSystemTestCase
-  # test "visiting the index" do
-  #   visit pages_url
-  #
-  #   assert_selector "h1", text: "Page"
+
+  # test "visiting the home page" do
+  #   visit "/"
+  #   assert_selector "h1", text: "Welcome"
   # end
 
-  test "visiting the home page" do
+  test "logged in on the home page" do
+    p users(:dave)
     visit "/"
-    assert_selector "h1", text: "Welcome"
+    login_as users(:dave)
+    # save_and_open_screenshot
+    assert_selector "a", text: "Wandsworth"
   end
 
 

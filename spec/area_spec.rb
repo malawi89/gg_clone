@@ -1,6 +1,5 @@
 require 'activerecord'
-require_relative "../app/models/application_record"
-require_relative "../app/models/area"
+
 
 describe Area do
   describe "#name" do

@@ -35,5 +35,5 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
   gem 'launchy'
-  gem 'rspec-rails', '~> 3.7.2'
+  # gem 'rspec-rails', '~> 3.7.2'
 end
