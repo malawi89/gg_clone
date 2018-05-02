@@ -9,7 +9,7 @@
   <% end %>
   <h2><%= @area.name %> runners: </h2>
   <div class="row">
-    <% @area.runners.each_with_index do |runner, index|%>
+    <% @area.runners.each do |runner|%>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <% if runner.status == "regular" %>
           <div class="card regular">
@@ -19,6 +19,7 @@
           <div class="card never-run">
         <% end %>
           <div class="details">
+            <%= cl_image_tag runner.photo %>
             <%= runner.first_name %> <%= runner.last_name %>
           </div>
           <div class="interests">
