@@ -5,6 +5,7 @@
     <%= link_to "#{current_user.area.name}", area_path(current_user.area), class: "btn btn-success btn-lg"  %>
   <% else %>
     <h1>Welcome- please sign in for more options</h1>
+    <%= link_to "Log In", new_user_session_path, class: "btn btn-success btn-lg"  %>
   <% end %>
   </div>
 </div>

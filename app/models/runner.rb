@@ -10,5 +10,5 @@ class Runner < ApplicationRecord
   validates :mission, inclusion: { in: [true, false] }
   validates :coach_run, inclusion: { in: [true, false] }
   validates :area, presence: true
-  # validates :photo, presence: true
+  validates :photo, presence: true
 end
