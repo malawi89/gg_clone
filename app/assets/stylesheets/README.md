@@ -1,6 +1,7 @@
 #Setup
-Seed database
+Seed database - 1 user (coach runner), 1 area (Wandsworth, of course), 12 randomly generated runners with varied statuses and interests
 No mechanic was added for an Area Trainer to add themselves to an Area- assumed that this was done centrally
+Sending emails will open up tabs in chrome with the emails listed. Kept the runners down to 12 to not make this too annoying.
 
 #Email Logic
 Subjects change depending on Runner status
@@ -20,3 +21,5 @@ Red background - never
 3 people icon - group-runs
 Handshake icon- coach-runs
 2 people carrying an item - mission
+
+
