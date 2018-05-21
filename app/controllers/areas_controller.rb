@@ -9,20 +9,6 @@ class AreasController < ApplicationController
     @area = Area.new
   end
 
-  def weekly_email
-    @message = params["message"]
-    @group_run_message = params["group_run_message"]
-
-    if (params["message"].present? && params["group_run_message"].present?)
-
-      current_user.area.runners.each do |runner|
-        AreaMailer.weekly(@message, @group_run_message, current_user, runner).deliver_now
-      end
-      flash[:notice] = "Emails successfully sent"
-      redirect_to area_path(current_user.area)
-    end
-  end
-
   def create
     @area = Area.new(area_params)
     if @area.save
